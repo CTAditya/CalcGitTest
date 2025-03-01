@@ -1,0 +1,55 @@
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 8px;
+
+}
+
+@font-face {
+    font-family: 'sf-regular';
+    src: url('./assets/fonts/SF-Pro-Rounded-Regular.otf') format('opentype');
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+@font-face {
+    font-family: 'sf-bold';
+    src: url('./assets/fonts/SF-Pro-Rounded-Bold.otf') format('opentype');
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+.sf-regular{
+    font-family: 'sf-regular';
+}
+.sf-bold{
+    font-family: 'sf-bold';
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'sf-regular';
+}
+
+
+.calculator-app {
+    /* width: 80%;  
+background: green;
+height: calc(100% - 6em - 0.68em - 0.88em - 12px); 
+aspect-ratio: 3 / 4; */
+
+    width: min(90%, 400px);
+    /* 90% of the screen width, max 400px for control */
+    height: auto;
+    /* Auto height based on aspect ratio */
+    aspect-ratio: 3 / 4;
+    /* Ensures proportional scaling */
+    background: green;
+
+
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, 10px);
+}

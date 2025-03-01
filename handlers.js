@@ -4,7 +4,24 @@
 function handleOps(val) {
   currElm = getCurrElm();
 
-  if (currElm.leftVal !== "") currElm.ops = val;
+  console.log("currElm.rightVal : ", currElm.rightVal, currElm.rightVal !== "");
+
+  if (currElm.rightVal === "") currElm.ops = val;
+  else if (currElm.result === "") {
+    handleEquals();
+
+    // create new row and and set left as result from prev calc
+    const prevRes = currElm.result;
+    calcObj.push(getCurrStarterVal());
+    currElm = getCurrElm();
+
+    currElm.leftVal = prevRes;
+
+    currElm.ops = val;
+
+    updateCalcObj(currElm);
+  }
+
   console.log("currElm : ", currElm);
   handleUpdateDisplay();
 }
@@ -37,13 +54,14 @@ function handleSignChange() {
   if (currElm.rightVal === "") currElm.leftVal = +currElm.leftVal * -1 + "";
   else if (currElm.result === "")
     currElm.rightVal = +currElm.rightVal * -1 + "";
-  // create a new entry and use the result as leftVal
   else {
+    // create a new entry and use the result as leftVal
     const prevRes = currElm.result;
     calcObj.push(getCurrStarterVal());
     currElm = getCurrElm();
 
-    currElm.leftVal = +currElm.leftVal * -1 + "";
+    // currElm.leftVal = +currElm.leftVal * -1 + "";
+    currElm.leftVal = +prevRes * -1 + "";
     updateCalcObj(currElm);
   }
 

@@ -23,7 +23,9 @@ for (let i = 0, len = opsBtns.length; i < len; i++) {
 var eqBtn = document.getElementById("eq-btn");
 eqBtn.addEventListener("click", (evt) => {
   const btn = evt.srcElement;
-  handleExec();
+
+  handleEquals();
+
 });
 
 // Sign Change

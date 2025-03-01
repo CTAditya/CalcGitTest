@@ -10,9 +10,17 @@ function handleOps(val) {
 function handleNum(val) {
   currElm = getCurrElm();
 
+  if (currElm.result !== "") {
+    // add new elm into obj
+    calcObj.push(getCurrStarterVal());
+    currElm = getCurrElm();
+  }
+
   if (currElm.leftVal === "" || currElm.ops === "") currElm.leftVal += val;
   else if (currElm.rightVal === "" || currElm.ops !== "")
     currElm.rightVal += val;
+
+  updateCalcObj(currElm);
 
   console.log("currElm : ", currElm);
 }
@@ -51,11 +59,26 @@ function handleBks() {
     currEright = currElm.rightValstr.slice(0, currElm.rightValstr - 1);
   // create a new entry and set leftVal as 0
   else {
-    const prevRes = currElm.result;
     calcObj.push(getCurrStarterVal());
     currElm = getCurrElm();
 
     currElm.leftVal = "0";
     updateCalcObj(currElm);
   }
+}
+
+function handleEquals() {
+  currElm = getCurrElm();
+  if (currElm.leftVal === "" || currElm.rightVal === "") return;
+  handleExec();
+  handleUpdateDisplay();
+}
+
+function handleUpdateDisplay() {
+  currElm = getCurrElm();
+
+  document.getElementById(
+    "history-line"
+  ).innerText = `${currElm.leftVal} ${currElm.ops} ${currElm.rightVal}`;
+  document.getElementById("result-line").innerText = `${currElm.result}`;
 }

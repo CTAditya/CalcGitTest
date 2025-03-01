@@ -1,17 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Calculator</h1>
     <h2>Team Members: Aditya, Nikhil, Raj</h2>
 
     <div class="calculator-app">
+        <div class="calculator-display-panel">
+            <!-- Expression (smaller, positioned at bottom-right) -->
+            <div class="calculator-expression">
+                <p>2×6</p>
+            </div>
+            <!-- Result (larger, dynamically shrinks if needed) -->
+            <div class="calculator-result">
+                <p>8</p>
+            </div>
+
+        </div>
+        <!-- Buttons Container -->
+        <div class="calculator-grid-container">
+            <div>
+                <div class="opertaion-container-1">
+                    <button class="btn light-gray">C</button>
+                    <button class="btn light-gray">+/-</button>
+                    <button class="btn light-gray">%</button>
+                </div>
+                <div class="input-number-container">
+
+                    <button class="btn dark-gray">7</button>
+                    <button class="btn dark-gray">8</button>
+                    <button class="btn dark-gray">9</button>
+
+                    <button class="btn dark-gray">4</button>
+                    <button class="btn dark-gray">5</button>
+                    <button class="btn dark-gray">6</button>
+
+                    <button class="btn dark-gray">1</button>
+                    <button class="btn dark-gray">2</button>
+                    <button class="btn dark-gray">3</button>
+
+                    <button class="btn dark-gray zero">0</button>
+                    <button class="btn dark-gray">.</button>
+
+                </div>
+            </div>
+            <div class="operation-container-2">
+                <button class="btn orange">÷</button>
+                <button class="btn orange">×</button>
+                <button class="btn orange">-</button>
+                <button class="btn orange">+</button>
+                <button class="btn orange">=</button>
+            </div>
+
+
+        </div>
+        <!-- <div class="buttons">
+            <div class="row">
+                <button class="btn light-gray">C</button>
+                <button class="btn light-gray">+/-</button>
+                <button class="btn light-gray">%</button>
+                <button class="btn orange">÷</button>
+            </div>
+
+            <div class="row">
+                <button class="btn dark-gray">7</button>
+                <button class="btn dark-gray">8</button>
+                <button class="btn dark-gray">9</button>
+                <button class="btn orange">×</button>
+            </div>
+
+            <div class="row">
+                <button class="btn dark-gray">4</button>
+                <button class="btn dark-gray">5</button>
+                <button class="btn dark-gray">6</button>
+                <button class="btn orange">-</button>
+            </div>
+
+            <div class="row">
+                <button class="btn dark-gray">1</button>
+                <button class="btn dark-gray">2</button>
+                <button class="btn dark-gray">3</button>
+                <button class="btn orange">+</button>
+            </div>
+
+            <div class="row">
+                <button class="btn dark-gray zero">0</button>
+                <button class="btn dark-gray">.</button>
+                <button class="btn orange">=</button>
+            </div>
+        </div> -->
+
 
     </div>
 </body>
+
 </html>

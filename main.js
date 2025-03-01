@@ -1,4 +1,4 @@
-var calcObj = []; /**
+var calcObj = [getCurrStarterVal()]; /**
     [   
         leftVal: 5, 
         ops: "+",
@@ -8,11 +8,16 @@ var calcObj = []; /**
  */
 
 let currElm;
+currElm = getCurrStarterVal();
 
+
+//-----------------------------------------------------------------
+// Helpers
+//-----------------------------------------------------------------
 function getCurrElm() {
   return calcObj[calcObj.length - 1];
 }
-function setCurrElm(elmVal) {
+function updateCalcObj(elmVal) {
   return (calcObj[calcObj.length - 1] = elmVal);
 }
 function getCurrStarterVal() {
@@ -24,18 +29,19 @@ function getCurrStarterVal() {
   };
 }
 
+
+
+//-----------------------------------------------------------------
+// Handlers
+//-----------------------------------------------------------------
 function handleOps(val) {
   currElm = getCurrElm();
-  currElm.ops = val;
+
+  if (currElm.leftVal !== "") currElm.ops = val;
+  console.log("currElm : ", currElm);
 }
 function handleNum(val) {
   currElm = getCurrElm();
-
-  // For first usage
-  if (!currElm) {
-    currElm = getCurrStarterVal();
-    setCurrElm(currElm);
-  }
 
   if (currElm.leftVal === "" || currElm.ops === "") currElm.leftVal += val;
   else if (currElm.rightVal === "" || currElm.ops !== "")
@@ -48,11 +54,30 @@ function handleExec() {
   currElm = getCurrElm();
   const eqn = `${currElm.leftVal} ${currElm.ops} ${currElm.rightVal}`;
   currElm.result = new Function(`return ${eqn}`)();
-  setCurrElm(currElm);
+  updateCalcObj(currElm);
   console.log("result : ", eqn, currElm);
 }
 
+function handleSignChange() {
+  currElm = getCurrElm();
+  console.log("currElm : ", currElm);
 
+  if (currElm.rightVal === "") currElm.leftVal = "-" + currElm.leftVal;
+  else if (currElm.result === "") currElm.rightVal = "-" + currElm.rightVal;
+  // create a new entry and use the result as leftVal
+  else {
+    const prevRes = currElm.result;
+    calcObj.push(getCurrStarterVal());
+    currElm = getCurrElm();
+
+    currElm.leftVal = "-" + prevRes;
+    updateCalcObj(currElm);
+  }
+}
+
+//-----------------------------------------------------------------
+// Btn listeners and click handlers
+//-----------------------------------------------------------------
 // Number Btns
 var numBtns = document.getElementsByClassName("num-btns");
 for (let i = 0, len = numBtns.length; i < len; i++) {
@@ -83,6 +108,24 @@ var scBtn = document.getElementById("signChange-btn");
 scBtn.addEventListener("click", (evt) => {
   const btn = evt.srcElement;
   console.log(btn.innerText);
-  
-//   handleExec();
+
+  handleSignChange();
+});
+
+// Perc
+var percBtn = document.getElementById("perc-btn");
+percBtn.addEventListener("click", (evt) => {
+  const btn = evt.srcElement;
+  console.log(btn.innerText);
+
+  //   handleExec();
+});
+
+// Backspace btn
+var bksBtn = document.getElementById("backspace-btn");
+bksBtn.addEventListener("click", (evt) => {
+  const btn = evt.srcElement;
+  console.log(btn.innerText);
+
+  //   handleExec();
 });

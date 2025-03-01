@@ -22,10 +22,7 @@ for (let i = 0, len = opsBtns.length; i < len; i++) {
 // Equals btn
 var eqBtn = document.getElementById("eq-btn");
 eqBtn.addEventListener("click", (evt) => {
-  const btn = evt.srcElement;
-
   handleEquals();
-
 });
 
 // Sign Change

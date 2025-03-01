@@ -34,15 +34,16 @@ function handleSignChange() {
   currElm = getCurrElm();
   console.log("currElm : ", currElm);
 
-  if (currElm.rightVal === "") currElm.leftVal = "-" + currElm.leftVal;
-  else if (currElm.result === "") currElm.rightVal = "-" + currElm.rightVal;
+  if (currElm.rightVal === "") currElm.leftVal = +currElm.leftVal * -1 + "";
+  else if (currElm.result === "")
+    currElm.rightVal = +currElm.rightVal * -1 + "";
   // create a new entry and use the result as leftVal
   else {
     const prevRes = currElm.result;
     calcObj.push(getCurrStarterVal());
     currElm = getCurrElm();
 
-    currElm.leftVal = "-" + prevRes;
+    currElm.leftVal = +currElm.leftVal * -1 + "";
     updateCalcObj(currElm);
   }
 

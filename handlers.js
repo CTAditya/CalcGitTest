@@ -6,6 +6,7 @@ function handleOps(val) {
 
   if (currElm.leftVal !== "") currElm.ops = val;
   console.log("currElm : ", currElm);
+  handleUpdateDisplay();
 }
 function handleNum(val) {
   currElm = getCurrElm();
@@ -16,21 +17,17 @@ function handleNum(val) {
     currElm = getCurrElm();
   }
 
-  if (currElm.leftVal === "" || currElm.ops === "") currElm.leftVal += val;
+  if (currElm.leftVal === "" || currElm.ops === "")
+    if (currElm.leftVal === "0") currElm.leftVal = val;
+    else currElm.leftVal += val;
   else if (currElm.rightVal === "" || currElm.ops !== "")
-    currElm.rightVal += val;
+    if (currElm.rightVal === "0") currElm.rightVal = val;
+    else currElm.rightVal += val;
 
   updateCalcObj(currElm);
 
   console.log("currElm : ", currElm);
-}
-
-function handleExec() {
-  currElm = getCurrElm();
-  const eqn = `${currElm.leftVal} ${currElm.ops} ${currElm.rightVal}`;
-  currElm.result = new Function(`return ${eqn}`)();
-  updateCalcObj(currElm);
-  console.log("result : ", eqn, currElm);
+  handleUpdateDisplay();
 }
 
 function handleSignChange() {
@@ -48,23 +45,29 @@ function handleSignChange() {
     currElm.leftVal = "-" + prevRes;
     updateCalcObj(currElm);
   }
+
+  handleUpdateDisplay();
 }
 function handleBks() {
   currElm = getCurrElm();
   console.log("currElm : ", currElm);
 
   if (currElm.rightVal === "")
-    currElm.leftVal = currElm.leftValstr.slice(0, currElm.leftValstr - 1);
-  else if (currElm.result === "")
-    currEright = currElm.rightValstr.slice(0, currElm.rightValstr - 1);
-  // create a new entry and set leftVal as 0
-  else {
-    calcObj.push(getCurrStarterVal());
-    currElm = getCurrElm();
+    if (currElm.leftVal.length > 1)
+      currElm.leftVal = currElm.leftVal.slice(0, currElm.leftVal.length - 1);
+    else if (currElm.result === "")
+      if (currElm.rightVal.length > 1)
+        currEright = currElm.rightVal.slice(0, currElm.rightVal.length - 1);
+      // create a new entry and set leftVal as 0
+      else {
+        calcObj.push(getCurrStarterVal());
+        currElm = getCurrElm();
 
-    currElm.leftVal = "0";
-    updateCalcObj(currElm);
-  }
+        currElm.leftVal = "0";
+        updateCalcObj(currElm);
+      }
+
+  handleUpdateDisplay();
 }
 
 function handleEquals() {
@@ -72,6 +75,14 @@ function handleEquals() {
   if (currElm.leftVal === "" || currElm.rightVal === "") return;
   handleExec();
   handleUpdateDisplay();
+}
+
+function handleExec() {
+  currElm = getCurrElm();
+  const eqn = `${currElm.leftVal} ${currElm.ops} ${currElm.rightVal}`;
+  currElm.result = new Function(`return ${eqn}`)();
+  updateCalcObj(currElm);
+  console.log("result : ", eqn, currElm);
 }
 
 function handleUpdateDisplay() {

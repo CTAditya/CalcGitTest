@@ -18,6 +18,7 @@ for (let i = 0, len = opsBtns.length; i < len; i++) {
     handleOps(btn.innerText);
   });
 }
+console.log(document.getElementById("eq-btn"));
 
 // Equals btn
 var eqBtn = document.getElementById("eq-btn");

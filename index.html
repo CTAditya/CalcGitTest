@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <h1>Calculator</h1>
     <h2>Team Members: Aditya, Nikhil, Raj</h2>
 
     <div class="calculator-app">
-      <div class="calculator-display-panel">
-        <!-- Expression (smaller, positioned at bottom-right) -->
-        <div class="calculator-expression">
-          <p class="switch-in">2×6</p>
+        <div class="calculator-display-panel">
+            <!-- Expression (smaller, positioned at bottom-right) -->
+            <div class="calculator-expression">
+                <p class="switch-in" id="history-line">2×6</p>
+            </div>
+            <!-- Result (larger, dynamically shrinks if needed) -->
+            <div class="calculator-result">
+                <p class="fadeScale" id="result-line">8</p>
+            </div>
         </div>
-        <!-- Result (larger, dynamically shrinks if needed) -->
-        <div class="calculator-result">
-          <p class="fadeScale">8</p>
+        <!-- Buttons Container -->
+
+        <div class="calculator-grid-container">
+            <button class="btn light-gray" id="backspace-btn">C</button>
+            <button class="btn light-gray" id="signChange-btn">+/-</button>
+            <button class="btn light-gray" id="perc-btn">%</button>
+
+            <button class="btn orange ops-btns">÷</button>
+
+            <button class="btn dark-gray num-btns">7</button>
+            <button class="btn dark-gray num-btns">8</button>
+            <button class="btn dark-gray num-btns">9</button>
+            <button class="btn orange ops-btns">×</button>
+
+            <button class="btn dark-gray num-btns">4</button>
+            <button class="btn dark-gray num-btns">5</button>
+            <button class="btn dark-gray num-btns">6</button>
+            <button class="btn orange ops-btns">-</button>
+
+            <button class="btn dark-gray num-btns">1</button>
+            <button class="btn dark-gray num-btns">2</button>
+            <button class="btn dark-gray num-btns">3</button>
+            <button class="btn orange ops-btns">+</button>
+
+            <button class="btn dark-gray zero num-btns">0</button>
+            <button class="btn dark-gray">.</button>
+            <button class="btn orange" id="eq-btn">=</button>
         </div>
-      </div>
-      <!-- Buttons Container -->
-
-      <div class="calculator-grid-container">
-        <button class="btn light-gray">C</button>
-        <button class="btn light-gray">+/-</button>
-        <button class="btn light-gray">%</button>
-
-        <button class="btn orange">÷</button>
-
-        <button class="btn dark-gray">7</button>
-        <button class="btn dark-gray">8</button>
-        <button class="btn dark-gray">9</button>
-        <button class="btn orange">×</button>
-
-        <button class="btn dark-gray">4</button>
-        <button class="btn dark-gray">5</button>
-        <button class="btn dark-gray">6</button>
-        <button class="btn orange">-</button>
-
-        <button class="btn dark-gray">1</button>
-        <button class="btn dark-gray">2</button>
-        <button class="btn dark-gray">3</button>
-        <button class="btn orange">+</button>
-
-        <button class="btn dark-gray zero">0</button>
-        <button class="btn dark-gray">.</button>
-        <button class="btn orange" id="equal-btn">=</button>
-      </div>
     </div>
 
-    <div class="from-fn">
+    <!-- <div class="from-fn">
       <button class="num-btns">0</button>
       <button class="num-btns">1</button>
       <button class="num-btns">2</button>
@@ -86,17 +87,15 @@
         <div id="history-line">-- History --</div>
         <div id="result-line">-- Result --</div>
       </div>
-    </div>
-  </body>
-  <script src="./script/index.js"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js"
+    </div> -->
+</body>
+<script src="./script/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.0.1/math.js"
     integrity="sha512-ldafwBWmh8q0wplbjDzai4As66n/6e0kxw51a+LRJ6+aZ27t0oGpz7HH5dUh+MwWLacrsF8cGT4zR0p2S3QHtA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
-  <script src="./helpers.js"></script>
-  <script src="./handlers.js"></script>
-  <script src="./btnHandlers.js"></script>
-  <script src="./main.js"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./helpers.js"></script>
+<script src="./handlers.js"></script>
+<script src="./btnHandlers.js"></script>
+<script src="./main.js"></script>
+
 </html>

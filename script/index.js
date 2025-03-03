@@ -1,4 +1,4 @@
-document.querySelector("#equal-btn").addEventListener("click", function() {
+document.querySelector("#eq-btn").addEventListener("click", function() {
     // const result = document.querySelector(".calculator-result p");
     
     // // Example: Set the result value (Replace this with actual calculation logic)
@@ -14,7 +14,7 @@ document.querySelector("#equal-btn").addEventListener("click", function() {
 
     const expression = document.querySelector(".calculator-expression p");
     expression.classList.remove("switch-in");
-    expression.textContent = "7x6";
+    // expression.textContent = "7x6";
      // Force reflow (trigger a repaint)
      void expression.offsetWidth;
     expression.classList.add("switch-in");
@@ -24,7 +24,7 @@ document.querySelector("#equal-btn").addEventListener("click", function() {
     result.classList.remove("fadeScale");
 
     // Example: Set the result value (Replace with actual calculation logic)
-    result.textContent = "42"; // Change dynamically
+    // result.textContent = ""; // Change dynamically
 
     // Remove the class to reset the animation
     result.classList.remove("fade-in");

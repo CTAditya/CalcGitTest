@@ -15,7 +15,9 @@ var opsBtns = document.getElementsByClassName("ops-btns");
 for (let i = 0, len = opsBtns.length; i < len; i++) {
   opsBtns[i].addEventListener("click", (evt) => {
     const btn = evt.srcElement;
-    handleOps(btn.innerText);
+    // console.log("evt : ", evt.srcElement.getAttribute("data-ops"));
+    
+    handleOps(evt.srcElement.getAttribute("data-ops"));
   });
 }
 console.log(document.getElementById("eq-btn"));

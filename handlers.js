@@ -107,8 +107,16 @@ function handleExec() {
 function handleUpdateDisplay() {
   currElm = getCurrElm();
 
-  document.getElementById(
-    "history-line"
-  ).innerText = `${currElm.leftVal} ${currElm.ops} ${currElm.rightVal}`;
+  document.getElementById("history-line").innerText = `${
+    currElm.leftVal
+  } ${getOpsForDisplay(currElm.ops)} ${currElm.rightVal}`;
   document.getElementById("result-line").innerText = `${currElm.result}`;
+}
+
+// For converting / * signs to commly used ones like ÷ x
+function getOpsForDisplay(ops) {
+  let opsVal = ops;
+  if (opsVal == "*") opsVal = "x";
+  else if (opsVal == "/") opsVal = "÷";
+  return opsVal;
 }

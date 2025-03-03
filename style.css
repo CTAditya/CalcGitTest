@@ -53,8 +53,10 @@ html {
     height: 25%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Align content at the bottom */
-    align-items: flex-end; /* Align text to the right */
+    justify-content: flex-end;
+    /* Align content at the bottom */
+    align-items: flex-end;
+    /* Align text to the right */
     padding: 10px;
     background: black;
     color: white;
@@ -68,7 +70,8 @@ html {
     font-size: 1.5em;
     opacity: 0.7;
     display: flex;
-    align-items: flex-end; /* Ensures text stays at bottom */
+    align-items: flex-end;
+    /* Ensures text stays at bottom */
     justify-content: flex-end;
     padding: 0 5px;
     height: 46%;
@@ -87,7 +90,8 @@ html {
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    height: 70%; /* Takes most of the space */
+    height: 70%;
+    /* Takes most of the space */
     height: fit-content;
 }
 
@@ -114,6 +118,8 @@ html {
     width: 100%;
 }
 
+
+
 /* Each row of buttons */
 .row {
     display: flex;
@@ -130,8 +136,7 @@ html {
     border: none;
     font-size: 1.85em;
     font-weight: bold;
-    display: flex
-;
+    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -150,11 +155,43 @@ html {
 }
 
 /* Colors */
-.light-gray { background-color: #A5A5A5; color: black; }
-.dark-gray { background-color: #333; color: white; }
-.orange { background-color: #FF9500; color: white; }
+.light-gray {
+    background-color: #A5A5A5;
+    color: black;
+    background-color: rgb(165 165 165 / 80%);
+}
 
+.dark-gray {
+    background-color: #333;
+    color: white;
+    background-color: rgb(51 51 51 / 80%);
+}
 
+.orange {
+    background-color: #FF9500;
+    color: white;
+    background-color: rgb(255 149 0 / 80%);
+}
+
+.btn {
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:active {
+    background-color: rgb(165 165 165 / 100%);
+    /* Flash effect */
+    transform: scale(0.95);
+    /* Slight press effect */
+}
+
+.btn.orange:active {
+    background-color: rgba(255 149 0 / 100%);
+    /* Flash effect */
+}
+
+.btn.dark-gray:active {
+    background-color: rgb(51 51 51 / 100%);
+}
 
 
 
@@ -166,12 +203,100 @@ html {
     grid-row-gap: 0px;
 
     height: calc(100% - 25%);
-    gap: 5px; /* Adds spacing between buttons */
-   
+    gap: 5px;
+    /* Adds spacing between buttons */
+
     /* padding: 10px; */
     width: 98%;
     grid-template-columns: repeat(4, 24%);
     grid-template-rows: repeat(5, calc(75% / 4));
-    }
-   
+}
 
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.calculator-result p.fadeScale {
+    animation: fadeScale 0.3s ease-in-out;
+    /* animation: slideIn 0.3s ease-in-out; */
+    /* animation: flip 0.3s ease-in-out; */
+}
+
+.calculator-result p.fade-in {
+    /* animation: fadeIn 0.3s ease-in-out; */
+    animation: fadeScale 0.3s ease-in-out;
+}
+
+/* .calculator-expression p.fadeScale {
+    animation: fadeScale 0.3s ease-in-out;
+} */
+
+
+
+
+@keyframes fadeScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* Slide-in effect */
+.calculator-expression p.switch-in {
+    animation: slideIn-in 0.3s ease-in-out;
+}
+
+@keyframes slideIn-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

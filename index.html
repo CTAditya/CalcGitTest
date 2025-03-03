@@ -16,11 +16,11 @@
         <div class="calculator-display-panel">
             <!-- Expression (smaller, positioned at bottom-right) -->
             <div class="calculator-expression">
-                <p>2×6</p>
+                <p class="switch-in">2×6</p>
             </div>
             <!-- Result (larger, dynamically shrinks if needed) -->
             <div class="calculator-result">
-                <p>8</p>
+                <p class="fadeScale">8</p>
             </div>
 
         </div>
@@ -53,7 +53,7 @@
 
                 <button class="btn dark-gray zero">0</button>
                 <button class="btn dark-gray">.</button>
-                <button class="btn orange">=</button>
+                <button class="btn orange" id="equal-btn">=</button>
 
         </div>
 
@@ -114,5 +114,6 @@
 
     </div>
 </body>
+<script src="./script/index.js"></script>
 
 </html>

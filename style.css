@@ -41,11 +41,12 @@ html {
     width: min(90%, 426px);
     height: auto;
     aspect-ratio: 3 / 5;
-    background: green;
+    background: black;
     left: 50%;
     /* height: 67%; */
     position: relative;
     transform: translate(-50%, 10px);
+    border-radius: 12px;
 }
 
 .calculator-display-panel {
@@ -87,6 +88,7 @@ html {
     justify-content: flex-end;
     width: 100%;
     height: 70%; /* Takes most of the space */
+    height: fit-content;
 }
 
 /* Prevents unwanted margin issues */
@@ -126,14 +128,14 @@ html {
     aspect-ratio: 1;
     border-radius: 255px;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.85em;
     font-weight: bold;
     display: flex
 ;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin: 5px 0;
+    margin: 5px;
     height: 100%;
     width: 100%;
 }
@@ -143,6 +145,8 @@ html {
     /* flex: 2; 
     border-radius: 35px; */
     grid-column: 1 / span 2;
+    padding-left: 20%;
+    justify-content: left;
 }
 
 /* Colors */
@@ -165,36 +169,9 @@ html {
     gap: 5px; /* Adds spacing between buttons */
    
     /* padding: 10px; */
-    width: 100%;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(5, calc(75% / 4));
+    width: 98%;
     grid-template-columns: repeat(4, 24%);
     grid-template-rows: repeat(5, calc(75% / 4));
     }
-    .grid-1{
-        grid-area: 1 / 1 / 2 / 4;
-        background: greenyellow;
-    }
-    .opertaion-container-1 { grid-area: 1 / 1 / 2 / 4; }
-    .input-number-container { grid-area: 2 / 1 / 6 / 4; }
-    .operation-container-2 { grid-area: 1 / 4 / 6 / 5; }
-
-    .opertaion-container-1{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .operation-container-2{
-        display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    }
-
-    .input-number-container{
-        display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for numbers */
-    grid-template-rows: repeat(4, 1fr); /* 4 rows for numbers */
-    gap: 5px; /* Space between buttons */
-    }
+   
 
